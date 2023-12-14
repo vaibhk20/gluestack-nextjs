@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Vaibhavi"
+    },
+    {
+      "id": 2,
+      "username": "Vincent Vega"
+    },
+    {
+      "id": 3,
+      "username": "Matt Barrie"
+    },
+    {
+      "id": 4,
+      "username": "Nick Wignal"
+    }
+  ],
+  "blogs": [
+    {
+      "id": 1,
+      "title": "Detecting and Handling Memory Leaks in React Native Apps",
+      "description": "Detecting and Handling Memory Leaks in React Native Apps",
+      "content": "Let’s say you’re developing a React Native app for displaying a list of images from an API. In your application, you use an ImageGallery component to display a list of images. However, there is a problem with memory management in this component. In the above example, we use setInterval to increment the count variable every second. However, when the component is unmounted (no longer used), we forgot to clear the intervalId by not passing a cleanup function to useEffect. This can lead to a memory leak because setInterval is still running after the component has been unmounted. This can happen if a component is unmounted before useEffect runs for the first time. React Native Debugger is a powerful tool that supports React Native development. It integrates both React DevTools and Chrome DevTools, providing a comprehensive debugging experience. ",
+      "author": "Matt Barrie",
+      "date": "Sep 20",
+      "likes": 3,
+      "media": "",
+      "tagsId": 1
+    },
+    {
+      "id": 2,
+      "title": "As a Front-End Engineer: The Magic Behind “Event Emitter” in JavaScript That You Should Know Aboutt",
+      "description": "Detecting and Handling Memory Leaks in React Native Apps",
+      "content": "My friends, as a software engineer, you must have used Event Emitter. We often use it to handle cross-component communication scenarios. It triggers an event that everyone can listen to, and it can send data when the event is triggered. Different libraries provide different implementations and are used for different purposes, but the basic idea is to provide a framework for publishing and subscribing to events. Do you want to know the magic behind it? This article will share with you a very simple solution to achieve it.",
+      "author": "Shubham Gupta",
+      "date": "27 March",
+      "likes": 3,
+      "media": "",
+      "tagsId": 2
+    },
+    {
+      "id": 3,
+      "title": "What is the most popular backend for React Native?",
+      "description": "Detecting and Handling Memory Leaks in React Native Apps",
+      "content": "React Native, the powerful open-source mobile application framework created by Facebook, has revolutionized the world of app development. Its efficiency and ease of use have attracted developers and businesses worldwide. One of the key decisions when developing a React Native app is selecting the right backend to support it. In this blog, we delve into the most popular backends for React Native and how they are transforming the landscape of app development services. Whether you are a React Native app development company or an entrepreneur embarking on a mobile app project, this guide will help you make an informed choice. Before we dive into the specific options, it’s essential to understand the role of the backend in a React Native app. The backend serves as the server-side component that handles data storage, processing, and communication with the app’s frontend, which runs on the user’s device. Choosing the right backend is crucial for the performance, scalability, and security of your app. Selecting a backend for your React Native app is a decision that will impact various aspects of your project, including: Data storage and retrieval, User authentication and authorization, Real-time functionality, API integration, Scalability for future growth. Now, let’s explore the most popular backends for React Native app development.",
+      "author": "Willson Harvey",
+      "date": "Oct 30",
+      "likes": 3,
+      "media": "",
+      "tagsId": 1
+    }
+  ],
+  "recommondations": [],
+  "tags": [
+    {
+      "id": 1,
+      "name": "React Native"
+    },
+    {
+      "id": 2,
+      "name": "React"
+    },
+    {
+      "id": 3,
+      "name": "TypeScript"
+    },
+
+    {
+      "id": 4,
+      "name": "Vue.js"
+    },
+    {
+      "id": 5,
+      "name": "Angular"
+    },
+    {
+      "id": 6,
+      "name": "Dart"
+    },
+    {
+      "id": 7,
+      "name": "Flutter"
+    }
+  ]
+}

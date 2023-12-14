@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useState } from "react";
-import { UserContextProps, UserContextValue } from "@/context/types";
+import { User, UserContextProps, UserContextValue } from "@/context/types";
 
 export const UserContext = createContext<UserContextValue>({
   user: null,
@@ -10,9 +10,9 @@ export const UserContext = createContext<UserContextValue>({
 });
 
 export const UserProvider: React.FC<UserContextProps> = ({ children }) => {
-  const [username, setUsername] = useState<string | null>(null);
+  const [username, setUsername] = useState<User | null>(null);
 
-  const loginHandler = (newUser: string) => {
+  const loginHandler = (newUser: User) => {
     setUsername(newUser);
   };
 

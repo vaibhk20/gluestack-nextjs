@@ -1,3 +1,4 @@
+"use client";
 import { UserContext } from "@/context/UserContext";
 import {
   Box,
@@ -6,12 +7,56 @@ import {
   Text,
   Input,
   InputField,
+  VStack,
+  ToastTitle,
+  ToastDescription,
+  useToast,
+  Toast,
 } from "@gluestack-ui/themed";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
 
 const Login = () => {
   const [username, setUsername] = useState("");
-  const { login } = useContext(UserContext);
+  const { user, login } = useContext(UserContext);
+  const toast = useToast();
+  const router = useRouter();
+
+  const loginHandler = () => {
+    if (username === "") {
+      toast.show({
+        placement: "top right",
+        render: ({ id }) => {
+          const toastId = "toast-" + id;
+          return (
+            <Toast nativeID={toastId} action="error" variant="accent">
+              <VStack space="xs">
+                <ToastTitle>Hi User!</ToastTitle>
+                <ToastDescription>Please enter valid username</ToastDescription>
+              </VStack>
+            </Toast>
+          );
+        },
+      });
+      return;
+    }
+    const user = {
+      username: username,
+      id: uuidv4(),
+    };
+    login(user);
+    setTimeout(() => {
+      setUsername("");
+    }, 1000);
+    router.push("/dashboard");
+  };
+
+  useEffect(() => {
+    if (user !== null) {
+      router.push("/dashboard");
+    }
+  }, [user]);
   return (
     <Box
       sx={{
@@ -38,7 +83,14 @@ const Login = () => {
           },
         }}
       >
-        <Box maxWidth="$1/2" mx="auto">
+        <Box
+          mx="auto"
+          sx={{
+            "@md": {
+              maxWidth: "$1/2",
+            },
+          }}
+        >
           <Text
             fontSize="$3xl"
             lineHeight="$2xl"
@@ -47,7 +99,19 @@ const Login = () => {
           >
             Sign in with username
           </Text>
-          <Text fontSize="$md" textAlign="center" mt={30}>
+          <Text
+            fontSize="$md"
+            textAlign="center"
+            mt={30}
+            sx={{
+              "@base": {
+                display: "none",
+              },
+              "@md": {
+                display: "flex",
+              },
+            }}
+          >
             Enter the email address associated with your account, and we’ll send
             a magic link to your inbox.
           </Text>
@@ -55,7 +119,7 @@ const Login = () => {
             Your username
           </Text>
           <Box>
-            <Input variant="underlined" size="md">
+            <Input variant="underlined" size="md" isRequired={true}>
               <InputField
                 placeholder=""
                 textAlign="center"
@@ -68,14 +132,11 @@ const Login = () => {
               rounded="$full"
               width="$5/6"
               mx="auto"
-              onPress={() => {
-                login(username);
-                setTimeout(() => {
-                  setUsername("");
-                }, 1000);
-              }}
+              onPress={loginHandler}
             >
-              <ButtonText fontWeight="$light">Continue</ButtonText>
+              <ButtonText fontWeight="$light" fontSize="$sm">
+                Continue
+              </ButtonText>
             </Button>
           </Box>
         </Box>

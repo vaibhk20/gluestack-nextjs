@@ -4,8 +4,13 @@ export type UserContextProps = {
   children: ReactNode;
 };
 
+export type User = {
+  id: string;
+  username: string;
+};
+
 export type UserContextValue = {
-  user: string | null;
-  login: (user: string) => void;
+  user: User | null;
+  login: (user: User) => void;
   logout: () => void;
 };

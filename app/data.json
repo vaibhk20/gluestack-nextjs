@@ -6,15 +6,7 @@
     },
     {
       "id": 2,
-      "username": "Vincent Vega"
-    },
-    {
-      "id": 3,
       "username": "Matt Barrie"
-    },
-    {
-      "id": 4,
-      "username": "Nick Wignal"
     }
   ],
   "blogs": [
@@ -26,7 +18,7 @@
       "author": "Matt Barrie",
       "date": "Sep 20",
       "likes": 3,
-      "media": "",
+      "media": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "tagsId": 1
     },
     {
@@ -37,7 +29,7 @@
       "author": "Shubham Gupta",
       "date": "27 March",
       "likes": 3,
-      "media": "",
+      "media": "https://images.unsplash.com/photo-1503437313881-503a91226402?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "tagsId": 2
     },
     {
@@ -48,8 +40,19 @@
       "author": "Willson Harvey",
       "date": "Oct 30",
       "likes": 3,
-      "media": "",
+      "media": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "tagsId": 1
+    },
+    {
+      "id": 4,
+      "title": "First Blog",
+      "description": "",
+      "content": "With the online text generator you can process your personal Lorem Ipsum enriching it with html elements that define its structure, with the possibility to insert external links, but not only.\n\nNow to compose a text Lorem Ipsum is much more fun!\n\nIn fact, inserting any fantasy text or a famous text, be it a poem, a speech, a literary passage, a song's text, etc., our text generator will provide the random extraction of terms and steps to compose your own exclusive Lorem Ipsum.",
+      "tagsId": 3,
+      "media": "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "author": "vaibhavi",
+      "likes": 4,
+      "date": "2023-12-19T09:17:35.797Z"
     }
   ],
   "recommondations": [],
@@ -66,7 +69,6 @@
       "id": 3,
       "name": "TypeScript"
     },
-
     {
       "id": 4,
       "name": "Vue.js"

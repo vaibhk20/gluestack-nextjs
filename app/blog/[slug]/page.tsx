@@ -20,7 +20,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import { blogContent, testImage } from "@/lib/constants";
+import { testImage } from "@/lib/constants";
 import { getBlogById } from "@/lib/utils";
 import { BlogSchema } from "@/lib/schema";
 
@@ -31,12 +31,23 @@ const Blog = ({
     slug: string;
   };
 }) => {
-  const blog: BlogSchema | undefined = getBlogById(Number(params.slug));
+  const blog: BlogSchema | undefined = getBlogById(params.slug);
 
   return (
     <Box>
       <Header />
-      <Box width="$2/4" mx="auto" px="$6">
+      <Box
+        mx="auto"
+        px="$6"
+        sx={{
+          "@base": {
+            width: "100%",
+          },
+          "@lg": {
+            width: "$2/4",
+          },
+        }}
+      >
         <Text
           mt={50}
           fontSize="$4xl"
@@ -105,19 +116,28 @@ const Blog = ({
           </HStack>
           {/* blog content  */}
         </HStack>
-        <Box>
-          <Image
-            src={testImage}
-            alt=""
-            width={0}
-            height={0}
-            style={{
-              width: "100%",
-              height: "auto",
-              marginTop: "40px",
+        <Box width="$full">
+          <Box
+            width="$full"
+            my={40}
+            sx={{
+              "@base": {
+                height: "300px",
+              },
+              "@md": {
+                height: "$96",
+              },
             }}
-          />
-          <Text mt="$10" fontSize="$xl" lineHeight="$2xl" fontWeight="$light">
+          >
+            <Image
+              src={blog?.media ? blog.media : testImage}
+              alt=""
+              fill={true}
+              style={{ objectFit: "cover" }}
+            />
+          </Box>
+
+          <Text fontSize="$xl" lineHeight="$2xl" fontWeight="$light">
             {blog?.content}
           </Text>
         </Box>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Input,
@@ -12,12 +12,16 @@ import {
   HStack,
   BellIcon,
   Avatar,
+  Pressable,
 } from "@gluestack-ui/themed";
 import { User } from "lucide-react-native";
 import Image from "next/image";
 import Link from "next/link";
+import AddBlogModal from "../AddBlogModal";
 
 const Header = () => {
+  const [showModal, setShowModal] = useState(false);
+  const ref = useRef(null);
   return (
     <Box>
       <HStack
@@ -46,6 +50,10 @@ const Header = () => {
             sx={{
               "@base": {
                 border: "none",
+                display: "none",
+              },
+              "@md": {
+                display: "flex",
               },
             }}
           >
@@ -55,26 +63,33 @@ const Header = () => {
             <InputField placeholder="Search" />
           </Input>
         </HStack>
-        <HStack alignItems="center" space="3xl">
-          <Link
-            href="/new-story"
-            style={{
-              textDecoration: "none",
-            }}
-          >
+        <HStack
+          alignItems="center"
+          space="3xl"
+          sx={{
+            "@base": {
+              display: "none",
+            },
+            "@md": {
+              display: "flex",
+            },
+          }}
+        >
+          <Pressable onPress={() => setShowModal(true)}>
             <HStack space="sm">
               <Icon as={EditIcon} w="$6" h="$6" color="$secondary400" />
               <Text color="$secondary400" fontWeight="$light" fontSize="$sm">
                 Write
               </Text>
             </HStack>
-          </Link>
+          </Pressable>
           <Icon as={BellIcon} w="$6" h="$6" color="$secondary400" />
           <Avatar bgColor="$secondary200" h="$8" w="$8">
             <Icon as={User} color="white" size="xl" />
           </Avatar>
         </HStack>
       </HStack>
+      <AddBlogModal showModal={showModal} setShowModal={setShowModal} />
     </Box>
   );
 };

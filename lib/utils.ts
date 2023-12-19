@@ -5,7 +5,8 @@ export function getTagTopic(tagID: number) {
   return tagTopic?.name;
 }
 
-export function getBlogById(id: number) {
-  const blog = data.blogs.find((blog) => blog.id === id);
+export function getBlogById(id: string) {
+  const BlogID = Number(id);
+  const blog = data.blogs.find((blog) => blog.id === BlogID);
   return blog;
 }

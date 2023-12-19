@@ -21,7 +21,13 @@ import { getTagTopic } from "@/lib/utils";
 const BlogCard = ({ blogData }: { blogData: BlogSchema }) => {
   const router = useRouter();
   return (
-    <Box mx="$6">
+    <Box
+      sx={{
+        "@md": {
+          mx: "$6",
+        },
+      }}
+    >
       <HStack mt="$6" width="$full" space="md" alignItems="center">
         <Avatar bgColor="$amber600" size="xs" borderRadius="$full">
           <AvatarFallbackText>Vaibhavi</AvatarFallbackText>
@@ -33,9 +39,17 @@ const BlogCard = ({ blogData }: { blogData: BlogSchema }) => {
           {blogData.date}
         </Text>
       </HStack>
-
       <HStack mt="$3" justifyContent="space-between" position="relative">
-        <Box width="$3/4">
+        <Box
+          sx={{
+            "@base": {
+              width: "$2/4",
+            },
+            "@sm": {
+              width: "$3/4",
+            },
+          }}
+        >
           <Pressable onPress={() => router.push(`/blog/${blogData.id}`)}>
             <Text
               color="$secondary900"
@@ -68,7 +82,6 @@ const BlogCard = ({ blogData }: { blogData: BlogSchema }) => {
               {blogData.content}
             </Text>
           </Pressable>
-
           <HStack
             width="$full"
             justifyContent="space-between"
@@ -104,7 +117,6 @@ const BlogCard = ({ blogData }: { blogData: BlogSchema }) => {
             </HStack>
             <HStack space="md">
               <Icon as={Bookmark} m="$1" w="$5" h="$5" color="$secondary300" />
-
               <Icon
                 as={MinusCircle}
                 m="$1"
@@ -122,30 +134,16 @@ const BlogCard = ({ blogData }: { blogData: BlogSchema }) => {
             </HStack>
           </HStack>
         </Box>
-        <Box
-          position="absolute"
-          right={0}
-          sx={{
-            "@base": {
-              height: "55px",
-              width: "65px",
-            },
-            "@lg": {
-              height: "112px",
-              width: "112px",
-            },
-          }}
-        >
+        <Box position="absolute" right={0}>
           <Image
-            src={testImage}
-            width={0}
-            height={0}
-            style={{ width: "100%", height: "100%" }}
+            src={blogData?.media ? blogData.media : testImage}
+            width={112}
+            height={112}
             alt="medium logo"
+            objectFit="cover"
           />
         </Box>
       </HStack>
-
       <Divider my="$0.5" bg="$secondary100" />
     </Box>
   );

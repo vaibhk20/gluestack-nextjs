@@ -19,9 +19,7 @@ export default function RootLayout({
     <html lang="en" className="gs">
       <body className={inter.className}>
         <Providers>
-          <StyledJsxRegistry>
-            <main>{children}</main>
-          </StyledJsxRegistry>
+          <StyledJsxRegistry>{children}</StyledJsxRegistry>
         </Providers>
       </body>
     </html>

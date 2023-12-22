@@ -35,7 +35,6 @@ const Blog = ({
 
   return (
     <Box>
-      <Header />
       <Box
         mx="auto"
         px="$6"

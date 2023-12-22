@@ -9,7 +9,6 @@ import data from "@/app/data.json";
 
 const Dashboard = () => {
   const [selectedTagId, setSelectedTagId] = useState<number | null>(null);
-  const [blogs, setBlogs] = useState(data.blogs);
 
   const filteredBlogs = selectedTagId
     ? data.blogs.filter((blog) => blog.tagsId === selectedTagId)

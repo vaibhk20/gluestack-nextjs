@@ -13,10 +13,10 @@ import {
 } from "@gluestack-ui/themed";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { testImage } from "@/lib/constants";
+import { testImage } from "../../lib/constants";
 import { Bookmark, MinusCircle, MoreHorizontal } from "lucide-react-native";
-import { BlogSchema } from "@/lib/schema";
-import { getTagTopic } from "@/lib/utils";
+import { BlogSchema } from "../../lib/schema";
+import { getTagTopic } from "../../lib/utils";
 
 const BlogCard = ({ blogData }: { blogData: BlogSchema }) => {
   const router = useRouter();

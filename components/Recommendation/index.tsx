@@ -32,7 +32,9 @@ const Recommendation = ({
               size="md"
               variant="solid"
               borderRadius="$full"
-              backgroundColor="$secondary100"
+              backgroundColor={
+                selectedTagId === tag.id ? "$secondary200" : "$secondary100"
+              }
             >
               <BadgeText p="$1.5" color="$secondary900" fontSize="$xs">
                 {tag.name}

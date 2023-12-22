@@ -26,13 +26,17 @@ const Footer = () => {
         <RelatedBlogCard />
       </HStack>
       <Box borderTopColor="$secondary200" borderTopWidth={1} mt="$20">
-        {/* <HStack
+        <HStack
+          display="none"
           mx="auto"
           p="$6"
           space="xl"
           sx={{
-            "@base": {},
             "@md": {
+              display: "flex",
+            },
+            "@lg": {
+              justifyContent: "space-between",
               width: "$2/4",
             },
           }}
@@ -40,7 +44,7 @@ const Footer = () => {
           {FooterTags.map((tag) => (
             <Text fontSize="$sm">{tag}</Text>
           ))}
-        </HStack> */}
+        </HStack>
       </Box>
     </Box>
   );

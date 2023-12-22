@@ -8,6 +8,7 @@ import {
 } from "@gluestack-ui/themed";
 import Image from "next/image";
 import React from "react";
+import BlogActionsFooter from "../BlogActionsFooter";
 
 const RelatedBlogCard = () => {
   return (
@@ -39,7 +40,7 @@ const RelatedBlogCard = () => {
           Vaibhavi
         </Text>
       </HStack>
-      <Box>
+      <Box pb="$4">
         <Text
           color="$secondary900"
           fontWeight="$bold"
@@ -56,6 +57,16 @@ const RelatedBlogCard = () => {
           (Tested on macOS, react-native 0.72.5 in 10/2023)
         </Text>
       </Box>
+      <HStack space="sm">
+        <Text color="$secondary400" fontWeight="$light" fontSize="$sm">
+          5 min read
+        </Text>
+        <Text>.</Text>
+        <Text color="$secondary400" fontWeight="$light" fontSize="$sm">
+          Sep 15
+        </Text>
+      </HStack>
+      <BlogActionsFooter />
     </Box>
   );
 };

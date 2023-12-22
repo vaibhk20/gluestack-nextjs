@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { use, useContext, useEffect, useRef, useState } from "react";
 import {
   Box,
   Input,
@@ -13,15 +13,37 @@ import {
   BellIcon,
   Avatar,
   Pressable,
+  Popover,
+  PopoverBackdrop,
+  PopoverContent,
+  PopoverBody,
 } from "@gluestack-ui/themed";
 import { User } from "lucide-react-native";
 import Image from "next/image";
 import Link from "next/link";
 import AddBlogModal from "../AddBlogModal";
+import { UserContext } from "../../context/UserContext";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
+  const { logout, isLoggedIn } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
-  const ref = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push("/");
+    }
+  }, [isLoggedIn]);
+
   return (
     <Box>
       <HStack
@@ -84,9 +106,31 @@ const Header = () => {
             </HStack>
           </Pressable>
           <Icon as={BellIcon} w="$6" h="$6" color="$secondary400" />
-          <Avatar bgColor="$secondary200" h="$8" w="$8">
-            <Icon as={User} color="white" size="xl" />
-          </Avatar>
+          <Popover
+            isOpen={isOpen}
+            onClose={handleClose}
+            onOpen={handleOpen}
+            placement="bottom"
+            size="md"
+            trigger={(triggerProps) => {
+              return (
+                <Pressable {...triggerProps}>
+                  <Avatar bgColor="$secondary200" h="$8" w="$8">
+                    <Icon as={User} color="white" size="xl" />
+                  </Avatar>
+                </Pressable>
+              );
+            }}
+          >
+            <PopoverBackdrop />
+            <PopoverContent width="$20">
+              <PopoverBody>
+                <Pressable onPress={() => logout()}>
+                  <Text size="sm">Logout</Text>
+                </Pressable>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
         </HStack>
       </HStack>
       <AddBlogModal showModal={showModal} setShowModal={setShowModal} />

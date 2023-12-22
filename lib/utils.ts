@@ -1,4 +1,4 @@
-import data from "@/app/data.json";
+import data from "../app/data.json";
 
 export function getTagTopic(tagID: number) {
   const tagTopic = data.tags.find((tag) => tag.id === tagID);

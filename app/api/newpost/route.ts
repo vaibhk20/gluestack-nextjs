@@ -4,7 +4,6 @@ import * as fs from "fs";
 
 export async function POST(req: NextApiRequest, res: NextApiResponse) {
   try {
-    console.log("request", req.body);
     const newBlog = (await req.body.json()) as BlogSchema;
 
     //get the data from the json file

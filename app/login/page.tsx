@@ -19,6 +19,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const Login = () => {
   const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
   const { user, login } = useContext(UserContext);
   const toast = useToast();
   const router = useRouter();
@@ -46,10 +47,11 @@ const Login = () => {
       id: uuidv4(),
     };
     login(user);
+    setLoading(true);
     setTimeout(() => {
       setUsername("");
-    }, 1000);
-    router.push("/dashboard");
+      router.push("/dashboard");
+    }, 2000);
   };
 
   useEffect(() => {
@@ -128,14 +130,15 @@ const Login = () => {
             </Input>
             <Button
               mt={42}
-              backgroundColor="#191919"
+              backgroundColor={loading ? "#696969" : "#191919"}
               rounded="$full"
               width="$5/6"
               mx="auto"
               onPress={loginHandler}
+              disabled={loading}
             >
               <ButtonText fontWeight="$light" fontSize="$sm">
-                Continue
+                {loading ? "Loading..." : "Continue"}
               </ButtonText>
             </Button>
           </Box>

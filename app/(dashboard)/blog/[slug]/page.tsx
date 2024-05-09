@@ -3,7 +3,7 @@
 import React from "react";
 import {
   Avatar,
-  AvatarImage,
+  AvatarFallbackText,
   Box,
   HStack,
   Icon,
@@ -17,7 +17,6 @@ import {
   Share,
   MoreHorizontal,
 } from "lucide-react-native";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import { testImage } from "@/lib/constants";
@@ -59,11 +58,7 @@ const Blog = ({
         <HStack pt="$4" width="$full" space="xl">
           <HStack>
             <Avatar bgColor="$secondary200" h="$8" w="$8">
-              <AvatarImage
-                source={{
-                  uri: "",
-                }}
-              />
+              <AvatarFallbackText>{blog?.author}</AvatarFallbackText>
             </Avatar>
             <Box ml="$4">
               <Text fontWeight="$semibold" color="$secondary900">
@@ -113,7 +108,6 @@ const Blog = ({
               color="$secondary300"
             />
           </HStack>
-          {/* blog content  */}
         </HStack>
         <Box width="$full">
           <Box

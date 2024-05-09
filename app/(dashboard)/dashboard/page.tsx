@@ -33,12 +33,15 @@ const Dashboard = () => {
       <Box
         mt="$10"
         h="$full"
+        borderRightColor="$secondary100"
+        borderRightWidth={1}
+        pr="$12"
         sx={{
           "@base": {
             width: "100%",
           },
           "@lg": {
-            width: "55%",
+            width: "60%",
           },
         }}
       >
@@ -53,8 +56,6 @@ const Dashboard = () => {
         pb="$12"
         width="30%"
         minWidth={315}
-        borderLeftColor="$secondary100"
-        borderLeftWidth={1}
         display="none"
         sx={{
           "@lg": {

@@ -10,7 +10,7 @@ import Image from "next/image";
 import React from "react";
 import BlogActionsFooter from "../BlogActionsFooter";
 
-const RelatedBlogCard = () => {
+const RelatedBlogsFold = () => {
   return (
     <Box
       width="100%"
@@ -71,4 +71,4 @@ const RelatedBlogCard = () => {
   );
 };
 
-export default RelatedBlogCard;
+export default RelatedBlogsFold;
